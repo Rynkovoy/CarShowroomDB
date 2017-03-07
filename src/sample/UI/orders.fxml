@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="587.0" prefWidth="945.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controllers.OrdersController">
+    <children>
+        <AnchorPane layoutX="7.0" layoutY="85.0" prefHeight="25.0" prefWidth="152.0" style="-fx-border-color: gray;">
+            <children>
+                <Label layoutX="58.0" layoutY="4.0" text="Меню">
+                    <font>
+                        <Font name="System Bold" size="12.0" />
+                    </font>
+                </Label>
+            </children>
+        </AnchorPane>
+        <AnchorPane layoutX="7.0" layoutY="109.0" prefHeight="456.0" prefWidth="152.0" style="-fx-border-color: gray;">
+         <children>
+            <Accordion maxWidth="1.7976931348623157E308" prefHeight="457.0" prefWidth="150.0">
+               <padding>
+                  <Insets left="2.0" top="5.0" />
+               </padding>
+               <panes>
+                  <TitledPane prefHeight="25.0" prefWidth="346.0" text="Таблицы">
+                     <content>
+                        <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0">
+                           <children>
+                              <Button fx:id="btnAssortment" mnemonicParsing="false" onAction="#showAssortment" prefHeight="25.0" prefWidth="130.0" text="Ассортемент" />
+                              <Button fx:id="btnOrders" mnemonicParsing="false" onAction="#showOrders" prefHeight="25.0" prefWidth="130.0" text="Заказы">
+                                 <VBox.margin>
+                                    <Insets top="10.0" />
+                                 </VBox.margin>
+                              </Button>
+                              <Button fx:id="btnClients" mnemonicParsing="false" onAction="#showClients" prefHeight="25.0" prefWidth="130.0" text="Клиенты">
+                                 <VBox.margin>
+                                    <Insets top="10.0" />
+                                 </VBox.margin>
+                              </Button>
+                              <Button fx:id="btnManagers" mnemonicParsing="false" onAction="#showManagers" prefHeight="25.0" prefWidth="130.0" text="Менеджеры">
+                                 <VBox.margin>
+                                    <Insets top="10.0" />
+                                 </VBox.margin>
+                              </Button>
+                              <Button fx:id="btnSuppliers" mnemonicParsing="false" onAction="#showSuppliers" prefHeight="25.0" prefWidth="130.0" text="Поставщики">
+                                 <VBox.margin>
+                                    <Insets top="10.0" />
+                                 </VBox.margin>
+                              </Button>
+                           </children>
+                        </VBox>
+                     </content>
+                  </TitledPane>
+                  <TitledPane prefHeight="409.0" prefWidth="167.0" text="Редактирование">
+                     <content>
+                        <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0">
+                           <children>
+                              <Button mnemonicParsing="false" onAction="#addData" prefHeight="25.0" prefWidth="130.0" text="Добавить" />
+                              <Button mnemonicParsing="false" onAction="#changeData" prefHeight="25.0" prefWidth="130.0" text="Изменить">
+                                 <VBox.margin>
+                                    <Insets top="10.0" />
+                                 </VBox.margin>
+                              </Button>
+                              <Button mnemonicParsing="false" onAction="#deleteData" prefHeight="25.0" prefWidth="130.0" text="Удалить">
+                                 <VBox.margin>
+                                    <Insets top="10.0" />
+                                 </VBox.margin>
+                              </Button>
+                           </children>
+                        </VBox>
+                     </content>
+                  </TitledPane>
+               </panes>
+            </Accordion>
+         </children>
+        </AnchorPane>
+        <Label layoutX="850.0" layoutY="569.0" text="Created by A.R." />
+        <TableView fx:id="tableOrders" editable="true" layoutX="159.0" layoutY="85.0" prefHeight="483.0" prefWidth="776.0" tableMenuButtonVisible="true">
+            <columns>
+                <TableColumn fx:id="columnClient" prefWidth="99.0" text="Клиент" />
+                <TableColumn fx:id="columnCar" minWidth="6.0" prefWidth="108.0" text="Автомобиль" />
+                <TableColumn fx:id="columnColor" prefWidth="91.0" text="Цвет" />
+                <TableColumn fx:id="columnCount" minWidth="0.0" prefWidth="118.0" text="Количество" />
+                <TableColumn fx:id="columnAgreementData" minWidth="0.0" prefWidth="113.0" text="Дата заключения" />
+                <TableColumn fx:id="columnManager" prefWidth="126.0" text="Менеджер" />
+            <TableColumn fx:id="columnPay" prefWidth="130.0" text="Оплата" />
+            <TableColumn fx:id="columnDispatch" prefWidth="113.0" text="Дата отправки" />
+            <TableColumn fx:id="columnDelivery" prefWidth="113.0" text="Дата доставки" />
+            <TableColumn fx:id="columnNotif" prefWidth="113.0" text="Дата уведомления" />
+            </columns>
+        </TableView>
+        <Label layoutX="830.0" layoutY="37.0" prefHeight="48.0" prefWidth="108.0" text="Заказы">
+            <font>
+                <Font name="Rage Italic" size="30.0" />
+            </font>
+        </Label>
+      <MenuBar layoutY="2.0" prefHeight="25.0" prefWidth="200.0">
+         <menus>
+            <Menu mnemonicParsing="false" text="Файл" />
+            <Menu mnemonicParsing="false" text="Таблици">
+               <items>
+                  <MenuItem mnemonicParsing="false" onAction="#showAssortment" text="Ассортимент" />
+                  <MenuItem mnemonicParsing="false" onAction="#showOrders" text="Заказы" />
+                  <MenuItem mnemonicParsing="false" onAction="#showClients" text="Клиенты" />
+                  <MenuItem mnemonicParsing="false" onAction="#showManagers" text="Менеджеры" />
+                  <MenuItem mnemonicParsing="false" onAction="#showSuppliers" text="Поставщики" />
+               </items>
+            </Menu>
+            <Menu mnemonicParsing="false" onAction="#showPerformingOrders" text="Просмотр">
+               <items>
+                  <MenuItem mnemonicParsing="false" onAction="#showProcessingOrders" text="Заказы в обработке" />
+                  <MenuItem mnemonicParsing="false" onAction="#showPerformingOrders" text="Выполняемые заказы" />
+                  <MenuItem mnemonicParsing="false" onAction="#showRealizedOrders" text="Реализованные заказы" />
+               </items></Menu>
+         </menus>
+      </MenuBar>
+      <AnchorPane fx:id="layoutAdd" layoutX="169.0" layoutY="95.0" prefHeight="483.0" prefWidth="776.0" visible="false">
+         <children>
+            <AnchorPane layoutX="-7.0" layoutY="-11.0" prefHeight="451.0" prefWidth="776.0" style="-fx-border-color: #DCDCDC;">
+               <children>
+                  <Label layoutX="14.0" layoutY="23.0" text="Клиент" />
+                  <Label layoutX="14.0" layoutY="78.0" text="Автомобиль" />
+                  <Label layoutX="16.0" layoutY="183.0" text="Количество" />
+                  <Label layoutX="566.0" layoutY="19.0" text="Дата заключения" />
+                  <Label layoutX="14.0" layoutY="132.0" text="Цвет" />
+                  <TextField fx:id="tfColor" layoutX="14.0" layoutY="149.0" />
+                  <Button fx:id="btnAdd" layoutX="586.0" layoutY="258.0" mnemonicParsing="false" onAction="#onAdd" prefHeight="25.0" prefWidth="152.0" text="Добавить" />
+                  <Button layoutX="459.0" layoutY="258.0" mnemonicParsing="false" onAction="#onBack" prefHeight="25.0" prefWidth="81.0" text="Назад" />
+                  <Button fx:id="btnChange" layoutX="586.0" layoutY="258.0" mnemonicParsing="false" onAction="#onChange" prefHeight="25.0" prefWidth="152.0" text="Изменить" visible="false" />
+                  <ComboBox fx:id="cbCar" layoutX="14.0" layoutY="95.0" onAction="#getCarModel" prefWidth="150.0" />
+                  <TextField fx:id="tfCount" layoutX="15.0" layoutY="201.0" />
+                  <DatePicker fx:id="dpConclusionDate" layoutX="565.0" layoutY="36.0" />
+                  <ComboBox fx:id="cbManager" layoutX="220.0" layoutY="40.0" prefHeight="25.0" prefWidth="309.0" />
+                  <Label layoutX="226.0" layoutY="23.0" text="Менеджер" />
+                  <DatePicker fx:id="dpDispatchDate" layoutX="565.0" layoutY="90.0" />
+                  <Label layoutX="566.0" layoutY="73.0" text="Дата отправки" />
+                  <Label layoutX="565.0" layoutY="124.0" text="Дата доставки" />
+                  <DatePicker fx:id="dpDeliveryDate" layoutX="564.0" layoutY="141.0" />
+                  <DatePicker fx:id="dpNotificationDate" layoutX="565.0" layoutY="196.0" />
+                  <Label layoutX="566.0" layoutY="179.0" text="Дата уведомления" />
+                  <ComboBox fx:id="cbClient" layoutX="14.0" layoutY="40.0" prefHeight="25.0" prefWidth="150.0" />
+                  <TextField fx:id="tfPayment" layoutX="220.0" layoutY="99.0" />
+                  <Label layoutX="220.0" layoutY="82.0" text="Оплата" />
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+      <Button layoutX="2.0" layoutY="37.0" mnemonicParsing="false" onAction="#showClientMax" text="Клиент с максимальным заказов" />
+    </children>
+</Pane>

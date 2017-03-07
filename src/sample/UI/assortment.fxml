@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="587.0" prefWidth="945.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controllers.AssortmentController">
+    <children>
+        <AnchorPane layoutX="7.0" layoutY="85.0" prefHeight="25.0" prefWidth="152.0" style="-fx-border-color: gray;">
+            <children>
+                <Label layoutX="58.0" layoutY="4.0" text="Меню">
+                    <font>
+                        <Font name="System Bold" size="12.0" />
+                    </font>
+                </Label>
+            </children>
+        </AnchorPane>
+        <AnchorPane layoutX="7.0" layoutY="109.0" prefHeight="456.0" prefWidth="152.0" style="-fx-border-color: gray;">
+            <children>
+                <Accordion maxWidth="1.7976931348623157E308" prefHeight="457.0" prefWidth="150.0">
+                    <panes>
+                        <TitledPane prefHeight="25.0" prefWidth="346.0" text="Таблицы">
+                            <content>
+                                <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0">
+                                    <children>
+                                        <Button fx:id="btnAssortment" mnemonicParsing="false" onAction="#showAssortment" prefHeight="25.0" prefWidth="130.0" text="Ассортемент" />
+                                        <Button fx:id="btnOrders" mnemonicParsing="false" onAction="#showOrders" prefHeight="25.0" prefWidth="130.0" text="Заказы">
+                                            <VBox.margin>
+                                                <Insets top="10.0" />
+                                            </VBox.margin>
+                                        </Button>
+                                        <Button fx:id="btnClients" mnemonicParsing="false" onAction="#showClients" prefHeight="25.0" prefWidth="130.0" text="Клиенты">
+                                            <VBox.margin>
+                                                <Insets top="10.0" />
+                                            </VBox.margin>
+                                        </Button>
+                                        <Button fx:id="btnManagers" mnemonicParsing="false" onAction="#showManagers" prefHeight="25.0" prefWidth="130.0" text="Менеджеры">
+                                            <VBox.margin>
+                                                <Insets top="10.0" />
+                                            </VBox.margin>
+                                        </Button>
+                              <Button fx:id="btnSuppliers" mnemonicParsing="false" onAction="#showSuppliers" prefHeight="25.0" prefWidth="130.0" text="Поставщики">
+                                 <VBox.margin>
+                                    <Insets top="10.0" />
+                                 </VBox.margin>
+                              </Button>
+                                    </children>
+                                </VBox>
+                            </content>
+                        </TitledPane>
+                        <TitledPane prefHeight="409.0" prefWidth="167.0" text="Редактирование">
+                            <content>
+                                <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0">
+                                    <children>
+                                        <Button mnemonicParsing="false" onAction="#addData" prefHeight="25.0" prefWidth="130.0" text="Добавить" />
+                                        <Button mnemonicParsing="false" onAction="#changeData" prefHeight="25.0" prefWidth="130.0" text="Изменить">
+                                            <VBox.margin>
+                                                <Insets top="10.0" />
+                                            </VBox.margin>
+                                        </Button>
+                                        <Button mnemonicParsing="false" onAction="#deleteData" prefHeight="25.0" prefWidth="130.0" text="Удалить">
+                                            <VBox.margin>
+                                                <Insets top="10.0" />
+                                            </VBox.margin>
+                                        </Button>
+                                    </children>
+                                </VBox>
+                            </content>
+                        </TitledPane>
+                    </panes>
+                    <padding>
+                        <Insets left="2.0" top="5.0" />
+                    </padding>
+                </Accordion>
+            </children>
+        </AnchorPane>
+        <Label layoutX="850.0" layoutY="569.0" text="Created by A.R." />
+        <MenuBar layoutY="2.0" prefHeight="25.0" prefWidth="125.0">
+            <menus>
+                <Menu mnemonicParsing="false" text="Файл" />
+                <Menu mnemonicParsing="false" text="Таблици">
+                    <items>
+                        <MenuItem mnemonicParsing="false" onAction="#showAssortment" text="Ассортимент" />
+                        <MenuItem mnemonicParsing="false" onAction="#showOrders" text="Заказы" />
+                        <MenuItem mnemonicParsing="false" onAction="#showClients" text="Клиенты" />
+                        <MenuItem mnemonicParsing="false" onAction="#showManagers" text="Менеджеры" />
+                  <MenuItem mnemonicParsing="false" onAction="#showSuppliers" text="Поставщики" />
+                    </items>
+                </Menu>
+            </menus>
+        </MenuBar>
+        <TableView fx:id="tableAssortment" editable="true" layoutX="162.0" layoutY="85.0" prefHeight="483.0" prefWidth="776.0" tableMenuButtonVisible="true">
+            <columns>
+                <TableColumn fx:id="columnName" prefWidth="105.0" text="Марка" />
+                <TableColumn fx:id="columnModel" minWidth="6.0" prefWidth="131.0" text="Модель" />
+            <TableColumn fx:id="columnBodyType" prefWidth="126.0" text="Тип кузова" />
+            <TableColumn fx:id="columnSupplier" prefWidth="157.0" text="Поставщик" />
+            <TableColumn fx:id="columnCost" minWidth="0.0" prefWidth="108.0" text="Стоимость" />
+            <TableColumn fx:id="columnGearbox" maxWidth="135.0" prefWidth="135.0" text="Тип КПП" />
+            </columns>
+        </TableView>
+        <Label layoutX="752.0" layoutY="37.0" prefHeight="48.0" prefWidth="186.0" text="Ассортимент">
+            <font>
+                <Font name="Rage Italic" size="30.0" />
+            </font>
+        </Label>
+      <AnchorPane fx:id="layoutAdd" layoutX="162.0" layoutY="85.0" prefHeight="483.0" prefWidth="776.0" visible="false">
+         <children>
+            <AnchorPane layoutY="29.0" prefHeight="451.0" prefWidth="776.0" style="-fx-border-color: #DCDCDC;">
+               <children>
+                  <Label layoutX="14.0" layoutY="23.0" text="Марка" />
+                  <Label layoutX="14.0" layoutY="78.0" text="Модель" />
+                  <TextField fx:id="tfName" layoutX="14.0" layoutY="40.0" />
+                  <TextField fx:id="tfModel" layoutX="14.0" layoutY="95.0" />
+                  <Label layoutX="276.0" layoutY="23.0" text="Поставщик" />
+                  <ComboBox fx:id="cbSupplier" layoutX="276.0" layoutY="40.0" prefWidth="150.0" />
+                  <Label layoutX="278.0" layoutY="78.0" text="Стоимость" />
+                  <TextField fx:id="tfCost" layoutX="277.0" layoutY="95.0" />
+                  <Label layoutX="14.0" layoutY="132.0" text="Тип кузова" />
+                  <TextField fx:id="tfBodyType" layoutX="14.0" layoutY="149.0" />
+                  <Label layoutX="278.0" layoutY="132.0" text="Тип КПП" />
+                  <ComboBox fx:id="cbGearbox" layoutX="276.0" layoutY="149.0" prefWidth="150.0" />
+                  <Button fx:id="btnAdd" layoutX="277.0" layoutY="213.0" mnemonicParsing="false" onAction="#onAdd" prefHeight="25.0" prefWidth="152.0" text="Добавить" />
+                  <Button layoutX="163.0" layoutY="213.0" mnemonicParsing="false" onAction="#onBack" prefHeight="25.0" prefWidth="81.0" text="Назад" />
+                  <Button fx:id="btnChange" layoutX="276.0" layoutY="213.0" mnemonicParsing="false" onAction="#onChange" prefHeight="25.0" prefWidth="152.0" text="Изменить" visible="false" />
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+      <ComboBox fx:id="cbShowCars" layoutX="125.0" layoutY="2.0" onAction="#onShowCar" prefWidth="150.0" />
+      <Button layoutX="275.0" layoutY="2.0" mnemonicParsing="false" onAction="#updateshowcars" text="Обновить" />
+      <Button layoutX="345.0" layoutY="2.0" mnemonicParsing="false" onAction="#TheCostestCar" text="Самый дорогой автомобиль?" />
+    </children>
+</Pane>
